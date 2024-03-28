@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import br.inatel.dm112.client.BilletClient;
 import br.inatel.dm112.client.EmailClient;
 import br.inatel.dm112.client.OrderClient;
+import br.inatel.dm112.client.runner.ClientUtil;
 import br.inatel.dm112.model.BilletGenResponse;
 import br.inatel.dm112.model.Order;
 import br.inatel.dm112.model.Entregador;
@@ -35,8 +36,25 @@ public class PaymentService {
 	 * @param orderNumber
 	 * @return
 	 */
-	public Entregador startPaymentOfOrder(String cpf, int orderNumber) {
-//
+	public Entregador confirmDelivery(String delivetyPerson, int orderNumber) {
+
+		clientOrder.setRestURL(ClientUtil.getOrderRestURL());
+
+		Order orderToUpdate = clientOrder.retrieveOrder(orderNumber);
+		if (orderToUpdate == null) {
+			System.out.println("Order not found: " + 1);
+			return null;
+		}
+
+		if(orderToUpdate.getStatus() == 1) {
+			String msg = "Status do pedido " + orderNumber + " inválido: " + orderToUpdate.getStatus();
+			throw Entregador.createErrorStatus(msg, delivetyPerson, orderNumber, PAY_STATUS.WRONG_ORDER_STATUS);
+		}
+		
+		// update the values for the order
+		orderToUpdate.setStatus(1);
+		clientOrder.updateOrder(orderToUpdate);
+		
 //		Order order = getOrder(cpf, orderNumber); // (1) consulta o pedido pelo número
 //
 //		if (order.getStatus() != Order.STATUS.PENDING.ordinal()) {
@@ -65,7 +83,7 @@ public class PaymentService {
 //			String msg = "Erro no serviço de email";
 //			throw Entregador.createErrorStatus(msg, cpf, orderNumber, PAY_STATUS.EMAIL_ERROR);
 //		}
-//		System.out.println("Sucesso ao inicializar o pagamento: orderNumber: " + orderNumber + " cpf: " + cpf);
+		System.out.println("Sucesso ao atualizar o pedido: orderNumber: " + orderNumber);
 		return new Entregador(PAY_STATUS.OK.ordinal()); // (5) retorna sucesso
 	}
 

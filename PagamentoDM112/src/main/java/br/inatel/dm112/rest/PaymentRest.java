@@ -23,14 +23,14 @@ public class PaymentRest implements IEntregador {
 	private PaymentService service;
 
 	@Override
-	@GetMapping("/startPaymentOfOrder/{cpf:.+}/{orderNumber}")
+	@GetMapping("/confirmDelivery/{delivetyPerson}/{orderNumber}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public Entregador confirmDelivery(
-			@PathVariable("cpf")String cpf, 
+			@PathVariable("delivetyPerson")String delivetyPerson, 
 			@PathVariable("orderNumber") int orderNumber) {
 		
-		System.out.println("PaymentRest - startPaymentOfOrder");
-		return service.startPaymentOfOrder(cpf, orderNumber);
+		System.out.println("ConfirmDeliveryRest - "+ delivetyPerson);
+		return service.confirmDelivery(delivetyPerson, orderNumber);
 	}
 
 	@Override

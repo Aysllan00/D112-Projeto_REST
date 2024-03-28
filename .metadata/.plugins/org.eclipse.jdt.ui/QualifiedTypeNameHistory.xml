@@ -2,4 +2,5 @@
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="br.inatel.dm112.model.Order"/>
     <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="org.springframework.web.reactive.function.BodyInserters"/>
 </qualifiedTypeNameHistroy>

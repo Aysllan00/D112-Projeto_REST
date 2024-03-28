@@ -20,8 +20,8 @@ public class OrderClientUpdateRunner {
 		}
 
 		// update the values for the order
-		orderToUpdate.setAssociatedDeliveryPerson("Entregador1");;
-		//orderToUpdate.setStatus(1);
+		//orderToUpdate.setAssociatedDeliveryPerson("Entregador1");;
+		orderToUpdate.setStatus(1);
 		System.out.println(orderToUpdate.toString());
 		
 		client.updateOrder(orderToUpdate);

@@ -6,7 +6,7 @@ public class Entregador {
 
 	
 	public enum PAY_STATUS {
-		OK, NULL_VALUES, ORDER_NOT_FOUND, WRONG_ORDER_STATUS, ORDER_ERROR, BILLET_ERROR, EMAIL_ERROR
+		OK, NULL_VALUES, ORDER_NOT_FOUND, WRONG_ORDER_STATUS, ORDER_ERROR, EMAIL_ERROR
 	}
 
 	
@@ -33,10 +33,10 @@ public class Entregador {
 		return "Entregador [id=" + id + "]";
 	}
 	
-	public static PaymentException createErrorStatus(String msg, String cpf, int orderNumber, PAY_STATUS errorStatus) {
+	public static PaymentException createErrorStatus(String msg, String delivetyPerson, int orderNumber, PAY_STATUS errorStatus) {
 		System.out.println(msg);
 		return new PaymentException(msg + " Details: error status " + errorStatus.name()
-				+ " CPF: " + cpf + " Order: " + orderNumber);
+				+ " delivetyPerson: " + delivetyPerson + " Order: " + orderNumber);
 	}
 
 

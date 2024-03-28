@@ -70,6 +70,7 @@ public class OrderService {
 		entity.setCpfCustomer(order.getCpfCustomer());
 		entity.setStatus(order.getStatus());
 		entity.setOrderDate(order.getOrderDate());
+		entity.setAssociatedDeliveryPerson(order.getAssociatedDeliveryPerson());
 	}
 	
 	private void associateOrder(OrderEntity entity, String deliveryPerson) {
@@ -87,6 +88,7 @@ public class OrderService {
 		entity.setCpfCustomer(order.getCpfCustomer());
 		entity.setStatus(order.getStatus());
 		entity.setOrderDate(order.getOrderDate());
+		entity.setAssociatedDeliveryPerson(order.getAssociatedDeliveryPerson());
 		return entity;
 	}
 
