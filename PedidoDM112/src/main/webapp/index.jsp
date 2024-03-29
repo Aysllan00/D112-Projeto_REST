@@ -2,22 +2,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Serviços de Pedido</title>
+<title>ServiÃ§os de Pedido</title>
 </head>
 <body>
 <h1>File index.jsp ok!</h1>
 <br/>
-<h2>Serviços disponíveis:</h2>
+<h2>ServiÃ§os disponÃ­veis:</h2>
 <br/>
 GET: <a href="http://localhost:9090/PedidoDM112/api/orders">Busca todos os pedidos</a>
 <br/>
 <br/>
-Outras opções disponíveis:
+Outras opÃ§Ãµes disponÃ­veis:
 <br/>
-http://localhost:9090/PedidoDM112/api/orders/{número}
-<br/>
-http://localhost:9090/PedidoDM112/api/orders/customer/{cpf}
-<br/>
+http://localhost:9090/PedidoDM112/api/orders/{orderCode}
 <br/>
 </body>
 </html>

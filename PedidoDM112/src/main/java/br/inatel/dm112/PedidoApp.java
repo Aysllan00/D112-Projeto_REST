@@ -41,7 +41,7 @@ public class PedidoApp implements CommandLineRunner {
 		
 		OrderEntity order3 = new OrderEntity();
 		order3.setCpfCustomer("333.111.111-11");
-		order3.setAssociatedDeliveryPerson("Entregador1");
+		order3.setAssociatedDeliveryPerson("Entregador3");
 		//order1.setOrderDate(new Date());
 		order3.setStatus(0);
 
@@ -49,7 +49,7 @@ public class PedidoApp implements CommandLineRunner {
 
 		OrderEntity order4 = new OrderEntity();
 		order4.setCpfCustomer("444.222.222-22");
-		order4.setAssociatedDeliveryPerson("Entregador2");
+		order4.setAssociatedDeliveryPerson("Entregador4");
 		//order2.setOrderDate(new Date());
 		order4.setStatus(0);
 
